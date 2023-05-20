@@ -3,3 +3,9 @@ GET http://localhost:3000/healthz HTTP/1.1
 
 ### Message endpoint
 GET http://localhost:3000/message/word HTTP/1.1
+
+### Lambda health check
+GET https://eyweibi2ipcpviinywtz2m2oiq0bxeol.lambda-url.us-east-2.on.aws/healthz
+
+### Lambda health check
+GET https://eyweibi2ipcpviinywtz2m2oiq0bxeol.lambda-url.us-east-2.on.aws/message/word

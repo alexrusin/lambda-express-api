@@ -933,6 +933,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@vendia/serverless-express@^4.10.3":
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/@vendia/serverless-express/-/serverless-express-4.10.3.tgz#1260cac642991a597c801f149d27833e1a9cc890"
+  integrity sha512-/bgmivwBYN9F7PPOBSQaA8AQidUT5INHlstodazNlKbpAe+QbOjrUpN83m4GvZIMUlXXg8H07cGcE3yjszOSlQ==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

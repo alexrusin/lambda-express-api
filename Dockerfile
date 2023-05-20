@@ -12,17 +12,13 @@ FROM node:18.14-alpine AS installer
 RUN apk add --no-cache libc6-compat
 RUN apk update
 WORKDIR /app
-COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json .
 COPY --from=builder /app/yarn.lock .
 RUN yarn install --production=true
 
-FROM node:18.14-alpine AS runner
-WORKDIR /app
-# Don't run production as root
-RUN addgroup --system --gid 1001 expressjs
-RUN adduser --system --uid 1001 expressjs
-USER expressjs
-COPY --from=installer /app .
+FROM public.ecr.aws/lambda/nodejs:18 AS runner
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/lambda.js .
+COPY --from=installer /app/node_modules ./node_modules
 
-CMD node dist/index.js
+CMD [ "lambda.handler" ]
